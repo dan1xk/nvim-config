@@ -21,8 +21,11 @@ return {
 			inverse = true, -- invert background for search, diffs, statuslines and errors
 			contrast = "", -- can be "hard", "soft" or empty string
 			palette_overrides = {},
-			overrides = {},
 			dim_inactive = false,
+			overrides = {
+				CursorLine = { bg = "#1c3836" }, -- change the background color of the current line
+				CursorLineNr = { fg = "#fabd2f", bg = "#1c3836", bold = true }, -- change the color of the line number
+			},
 			transparent_mode = true,
 		})
 		vim.cmd("colorscheme gruvbox")
