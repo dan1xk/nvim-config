@@ -22,10 +22,27 @@ return {
 			end,
 		})
 
+		local ignore_filetypes_list = {
+			"./node_modules/*",
+			"node_modules",
+			"^node_modules/*",
+			"node_modules/*",
+			"venv",
+			"__pycache__",
+			"%.xlsx",
+			"%.jpg",
+			"%.png",
+			"%.webp",
+			"%.pdf",
+			"%.odt",
+			"%.ico",
+			"%.exe",
+		}
+
 		telescope.setup({
 			defaults = {
 				path_display = { "smart" },
-				file_ignore_patterns = { "./node_modules/*", "node_modules", "^node_modules/*", "node_modules/*" },
+				file_ignore_patterns = ignore_filetypes_list,
 				mappings = {
 					i = {
 						["<C-k>"] = actions.move_selection_previous, -- move to prev result
