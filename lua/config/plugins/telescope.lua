@@ -37,6 +37,7 @@ return {
 			"%.odt",
 			"%.ico",
 			"%.exe",
+			"package%-lock.json",
 		}
 
 		telescope.setup({
