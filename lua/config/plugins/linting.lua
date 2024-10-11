@@ -49,9 +49,9 @@ return {
 		end, { desc = "Trigger linting for current file" })
 
 		-- Disable virtual text
-		vim.diagnostic.config({
-			virtual_text = false,
-			virtual_lines = false, -- For nvim 0.6 and later
-		})
+		-- 	vim.diagnostic.config({
+		-- 		virtual_text = false,
+		-- 		virtual_lines = false, -- For nvim 0.6 and later
+		-- 	})
 	end,
 }
