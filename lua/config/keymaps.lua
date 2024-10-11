@@ -24,22 +24,15 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) -- G
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) -- Go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) -- Move current buffer to new tab
 
+-- Buffer Navigation Mappings
+keymap.set("n", "<leader>bn", ":bnext<CR>", { desc = "Go to next buffer" }) -- Go to next buffer
+keymap.set("n", "<leader>bp", ":bprevious<CR>", { desc = "Go to previous buffer" }) -- Go to previous buffer
+
 -- Navigation Mappings
 keymap.set("n", "<C-j>", "10j", { desc = "Move down 10 lines" }) -- Move down 10 lines
 keymap.set("n", "<C-k>", "10k", { desc = "Move up 10 lines" }) -- Move up 10 lines
 keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window" }) -- Go to left window
 keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to right window" }) -- Go to right window
-
--- Copy and Paste Mappings
-keymap.set("n", "<leader>y", '"+y', { desc = "Yank to system clipboard" }) -- Copy to system clipboard
-keymap.set("n", "<leader>p", '"+p', { desc = "Paste from system clipboard" }) -- Paste from system clipboard
-keymap.set("v", "<leader>y", '"+y', { desc = "Yank selected text to system clipboard" }) -- Copy selected text
-keymap.set("v", "<leader>p", '"+p', { desc = "Paste from system clipboard in visual mode" }) -- Paste in visual mode
-
--- File Management Mappings
-keymap.set("n", "<leader>fs", ":w<CR>", { desc = "Save file" }) -- Save current file
-keymap.set("n", "<leader>fq", ":q<CR>", { desc = "Quit current buffer" }) -- Quit current buffer
-keymap.set("n", "<leader>fQ", ":qa<CR>", { desc = "Quit all buffers" }) -- Quit all buffers
 
 -- Miscellaneous Mappings
 keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Find files with Telescope" }) -- Find files with Telescope
