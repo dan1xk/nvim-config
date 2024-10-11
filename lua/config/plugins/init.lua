@@ -1,4 +1,10 @@
+-- ================================
+--      Plugin Initialization
+-- ================================
+
 return {
-  "nvim-lua/plenary.nvim", -- lua functions that many plugins use
-  "christoomey/vim-tmux-navigator", -- tmux & split window navigation
+  -- Lua functions that many plugins use
+  "nvim-lua/plenary.nvim",
+  -- Tmux & split window navigation
+  "christoomey/vim-tmux-navigator",
 }

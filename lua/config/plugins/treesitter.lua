@@ -1,57 +1,62 @@
+-- ================================
+--         Treesitter Plugin
+-- ================================
+
 return {
 	"nvim-treesitter/nvim-treesitter",
-	event = { "BufReadPre", "BufNewFile" },
-	build = ":TSUpdate",
+	event = { "BufReadPre", "BufNewFile" }, -- Load on buffer read or new file
+	build = ":TSUpdate", -- Command to run for updating treesitter parsers
 	dependencies = {
-		"windwp/nvim-ts-autotag",
+	  "windwp/nvim-ts-autotag", -- Autotagging for HTML-like files
 	},
+  
 	config = function()
-		-- import nvim-treesitter plugin
-		local treesitter = require("nvim-treesitter.configs")
-
-		-- configure treesitter
-		treesitter.setup({ -- enable syntax highlighting
-			highlight = {
-				enable = true,
-			},
-			-- enable indentation
-			indent = { enable = true },
-			-- enable autotagging (w/ nvim-ts-autotag plugin)
-			autotag = {
-				enable = true,
-			},
-			-- ensure these language parsers are installed
-			ensure_installed = {
-				"json",
-				"javascript",
-				"typescript",
-				"tsx",
-				"yaml",
-				"html",
-				"css",
-				"prisma",
-				"markdown",
-				"markdown_inline",
-				"svelte",
-				"graphql",
-				"bash",
-				"lua",
-				"vim",
-				"dockerfile",
-				"gitignore",
-				"query",
-				"vimdoc",
-				"c",
-			},
-			incremental_selection = {
-				enable = true,
-				keymaps = {
-					init_selection = "<C-space>",
-					node_incremental = "<C-space>",
-					scope_incremental = false,
-					node_decremental = "<bs>",
-				},
-			},
-		})
+	  -- Import the nvim-treesitter plugin
+	  local treesitter = require("nvim-treesitter.configs")
+  
+	  -- Configure treesitter
+	  treesitter.setup({
+		highlight = {
+		  enable = true, -- Enable syntax highlighting
+		},
+		indent = {
+		  enable = true, -- Enable indentation
+		},
+		autotag = {
+		  enable = true, -- Enable autotagging
+		},
+		ensure_installed = {
+		  "json",
+		  "javascript",
+		  "typescript",
+		  "tsx",
+		  "yaml",
+		  "html",
+		  "css",
+		  "prisma",
+		  "markdown",
+		  "markdown_inline",
+		  "svelte",
+		  "graphql",
+		  "bash",
+		  "lua",
+		  "vim",
+		  "dockerfile",
+		  "gitignore",
+		  "query",
+		  "vimdoc",
+		  "c", -- Ensure these language parsers are installed
+		},
+		incremental_selection = {
+		  enable = true, -- Enable incremental selection
+		  keymaps = {
+			init_selection = "<C-space>",  -- Keymap for initial selection
+			node_incremental = "<C-space>", -- Keymap for node increment
+			scope_incremental = false,       -- Disable scope increment
+			node_decremental = "<bs>",       -- Keymap for node decrement
+		  },
+		},
+	  })
 	end,
-}
+  }
+  

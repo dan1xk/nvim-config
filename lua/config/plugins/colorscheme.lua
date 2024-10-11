@@ -1,33 +1,34 @@
+-- ================================
+--           Theme Setup
+-- ================================
+
 return {
-	"ellisonleao/gruvbox.nvim",
+	"ellisonleao/gruvbox.nvim",                 -- Gruvbox colorscheme plugin
 	config = function()
-		require("gruvbox").setup({
-			terminal_colors = true, -- add neovim terminal colors
-			undercurl = true,
-			underline = false,
-			bold = true,
-			-- italic = {
-			-- 	strings = true,
-			-- 	emphasis = true,
-			-- 	comments = true,
-			-- 	operators = false,
-			-- 	folds = true,
-			-- },
-			strikethrough = true,
-			invert_selection = false,
-			invert_signs = false,
-			invert_tabline = false,
-			invert_intend_guides = false,
-			inverse = true, -- invert background for search, diffs, statuslines and errors
-			contrast = "", -- can be "hard", "soft" or empty string
-			palette_overrides = {},
-			dim_inactive = false,
-			overrides = {
-				CursorLine = { bg = "#1c3836" }, -- change the background color of the current line
-				CursorLineNr = { fg = "#fabd2f", bg = "#1c3836", bold = true }, -- change the color of the line number
-			},
-			transparent_mode = true,
-		})
-		vim.cmd("colorscheme gruvbox")
+	  -- Setup Gruvbox with specified options
+        require("gruvbox").setup({
+		-- General settings
+		undercurl = true,                        -- Enable undercurl
+		underline = false,                       -- Disable underlining
+		bold = true,                             -- Enable bold text
+		strikethrough = true,                    -- Enable strikethrough
+		invert_selection = false,                -- Disable selection inversion
+		invert_signs = false,                    -- Disable sign inversion
+		invert_tabline = false,                  -- Disable tabline inversion
+		transparent_mode = true,                 -- Enable transparent mode
+		dim_inactive = false,                    -- Don't dim inactive windows
+  
+		-- Contrast and appearance
+		contrast = "",                           -- Options: "hard", "soft", or empty
+		palette_overrides = {},                  -- Custom palette overrides
+		overrides = {
+		  CursorLine = { bg = "#1c3836" },       -- Background for the current line
+		  CursorLineNr = { fg = "#fabd2f", bg = "#1c3836", bold = true }, -- Line number styling
+		},
+	  })
+  
+	  -- Set the colorscheme to gruvbox
+	  vim.cmd("colorscheme gruvbox")
 	end,
-}
+  }
+  

@@ -1,53 +1,55 @@
+-- ================================
+--         Mason Configuration
+-- ================================
+
 return {
-  "williamboman/mason.nvim",
+  "williamboman/mason.nvim",             
   dependencies = {
-    "williamboman/mason-lspconfig.nvim",
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    "williamboman/mason-lspconfig.nvim",      -- LSP configuration for Mason
+    "WhoIsSethDaniel/mason-tool-installer.nvim", -- Tool installer for Mason
   },
   config = function()
-    -- import mason
-    local mason = require("mason")
+    -- Import necessary modules
+    local mason = require("mason")                              -- Import Mason
+    local mason_lspconfig = require("mason-lspconfig")          -- Import Mason LSP configuration
+    local mason_tool_installer = require("mason-tool-installer") -- Import Mason tool installer
 
-    -- import mason-lspconfig
-    local mason_lspconfig = require("mason-lspconfig")
-
-    local mason_tool_installer = require("mason-tool-installer")
-
-    -- enable mason and configure icons
+    -- Enable Mason and configure UI icons
     mason.setup({
       ui = {
         icons = {
-          package_installed = "✓",
-          package_pending = "➜",
-          package_uninstalled = "✗",
+          package_installed = "✓",    -- Icon for installed packages
+          package_pending = "➜",      -- Icon for pending installations
+          package_uninstalled = "✗",  -- Icon for uninstalled packages
         },
       },
     })
 
+    -- Configure Mason LSP settings
     mason_lspconfig.setup({
-      -- list of servers for mason to install
       ensure_installed = {
-        "tsserver",
-        "html",
-        "cssls",
-        "tailwindcss",
-        "svelte",
-        "lua_ls",
-        "graphql",
-        "emmet_ls",
-        "prismals",
-        "pyright",
+        "tsserver",      -- TypeScript server
+        "html",          -- HTML server
+        "cssls",        -- CSS server
+        "tailwindcss",   -- Tailwind CSS server
+        "svelte",        -- Svelte server
+        "lua_ls",        -- Lua language server
+        "graphql",       -- GraphQL server
+        "emmet_ls",      -- Emmet server
+        "prismals",      -- Prisma language server
+        "pyright",       -- Python server
       },
     })
 
+    -- Configure Mason tool installer settings
     mason_tool_installer.setup({
       ensure_installed = {
-        "prettier", -- prettier formatter
-        "stylua", -- lua formatter
-        "isort", -- python formatter
-        "black", -- python formatter
-        "pylint",
-        "eslint_d",
+        "prettier",   -- Prettier formatter
+        "stylua",     -- Lua formatter
+        "isort",      -- Python import sorter
+        "black",      -- Python formatter
+        "pylint",     -- Python linter
+        "eslint_d",   -- ESLint daemon for JavaScript and TypeScript
       },
     })
   end,
