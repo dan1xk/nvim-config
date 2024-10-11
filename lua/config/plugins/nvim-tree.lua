@@ -26,6 +26,23 @@ return {
 						},
 					},
 				},
+				-- Diagnostics configuration
+			},
+			diagnostics = {
+				enable = true, -- Ativar diagnósticos
+				show_on_dirs = false,
+				show_on_open_dirs = true,
+				debounce_delay = 50,
+				severity = {
+					min = vim.diagnostic.severity.HINT,
+					max = vim.diagnostic.severity.ERROR,
+				},
+				icons = {
+					hint = "",
+					info = "",
+					warning = "",
+					error = "",
+				},
 			},
 			-- disable window_picker for
 			-- explorer to work well with
