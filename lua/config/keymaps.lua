@@ -36,8 +36,7 @@ keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to right window" }) -- Go to rig
 
 -- Miscellaneous Mappings
 keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Find files with Telescope" }) -- Find files with Telescope
-keymap.set("n", "<leader>fs", ":Telescope live_grep<CR>", { desc = "Live grep with Telescope" }) -- Live grep with Telescope
+keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", { desc = "Live grep with Telescope" }) -- Live grep with Telescope
 keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { desc = "List buffers with Telescope" }) -- List buffers with Telescope
 keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>", { desc = "Find help tags with Telescope" }) -- Find help tags with Telescope
-keymap.set("n", "<leader>ft", ":TodoTelescope<CR>", { desc = "Find todos" }) -- Find Todos with Telescope
--- TODO: test
+
