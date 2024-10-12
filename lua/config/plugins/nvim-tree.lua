@@ -18,6 +18,11 @@ return {
 				width = 40, -- Width of the tree view
 				relativenumber = false, -- Disable relative numbers
 			},
+			update_focused_file = { -- Focus on the open file
+				enable = true,
+				update_cwd = false,
+				ignore_list = {},
+			},
 			renderer = {
 				indent_markers = {
 					enable = true, -- Enable indent markers
@@ -74,4 +79,3 @@ return {
 		keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- Refresh file explorer
 	end,
 }
-
