@@ -20,7 +20,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim with plugin configurations
 require("lazy").setup({
 	{ import = "config.plugins" }, -- Load general plugin configurations
-	{ import = "config.plugins.lsp" }, -- Load LSP plugin configurations
+	{ import = "config.plugins.LSP" }, -- Load LSP plugin configurations
 }, {
 	checker = {
 		enabled = true, -- Enable the plugin checker
