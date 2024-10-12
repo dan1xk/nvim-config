@@ -29,7 +29,7 @@ return {
 			format_on_save = {
 				lsp_fallback = true, -- Use LSP formatter if available
 				async = false, -- Run formatting synchronously
-				timeout_ms = 1000, -- Timeout for formatting in milliseconds
+				timeout_ms = 500, -- Timeout for formatting in milliseconds
 			},
 		})
 
@@ -38,9 +38,8 @@ return {
 			conform.format({
 				lsp_fallback = true,
 				async = false,
-				timeout_ms = 1000,
+				timeout_ms = 500,
 			})
 		end, { desc = "Format file or range (in visual mode)" }) -- Description for the key mapping
 	end,
 }
-
