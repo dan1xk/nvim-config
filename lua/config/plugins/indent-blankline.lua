@@ -7,8 +7,8 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	main = "ibl", -- Main module to load
 	opts = {
-		indent = {
-			char = "┊", -- Character used for indentation lines
-		},
+		-- indent = {
+		-- 	char = "┊", -- Character used for indentation lines
+		-- },
 	},
 }
