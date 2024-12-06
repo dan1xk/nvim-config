@@ -15,6 +15,7 @@ opt.mouse = "a" -- Enable mouse support in all modes
 opt.scrolloff = 8 -- Keep 8 lines visible when scrolling
 opt.sidescrolloff = 8 -- Keep 8 columns visible when side-scrolling
 opt.completeopt = "menuone,noselect" -- Better completion experience
+opt.backupcopy = "yes" -- Copy the file instead of renaming it
 
 -- Indentation settings
 opt.tabstop = 2 -- Number of spaces that a <Tab> counts for
