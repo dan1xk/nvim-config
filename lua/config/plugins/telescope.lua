@@ -42,6 +42,8 @@ return {
 			"%.ico",
 			"%.exe",
 			"package%-lock.json",
+			"yarn%-error.log",
+			"yarn.lock",
 		}
 
 		telescope.setup({
