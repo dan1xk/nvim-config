@@ -6,7 +6,9 @@ return {
 	"lewis6991/gitsigns.nvim",
 	event = { "BufReadPre", "BufNewFile" },
 	opts = {
+		current_line_blame = true,
 		on_attach = function(bufnr)
+			vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", { fg = "#a9b1d6", italic = true })
 			local gs = require("gitsigns")
 
 			-- Function to create key mappings
@@ -47,4 +49,3 @@ return {
 		end,
 	},
 }
-

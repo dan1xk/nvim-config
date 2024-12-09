@@ -21,14 +21,9 @@ return {
 			-- Contrast and appearance
 			contrast = "", -- Options: "hard", "soft", or empty
 			palette_overrides = {}, -- Custom palette overrides
-			overrides = {
-				CursorLine = { bg = "#1c3836" }, -- Background for the current line
-				CursorLineNr = { fg = "#fabd2f", bg = "#1c3836", bold = true }, -- Line number styling
-			},
 		})
 
 		-- Set the colorscheme to gruvbox
 		vim.cmd("colorscheme gruvbox")
 	end,
 }
-
