@@ -55,7 +55,8 @@ return {
 						["<C-k>"] = actions.move_selection_previous, -- Move to previous result
 						["<C-j>"] = actions.move_selection_next, -- Move to next result
 						["<C-q>"] = actions.send_selected_to_qflist + custom_actions.open_trouble_qflist, -- Send to quickfix and open trouble
-						["<C-t>"] = trouble_telescope.smart_open_with_trouble, -- Open with trouble
+						["<C-t>"] = require("trouble.sources.telescope").open,
+						-- Open with trouble
 					},
 				},
 			},
