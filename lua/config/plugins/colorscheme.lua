@@ -20,10 +20,16 @@ return {
 
 			-- Contrast and appearance
 			contrast = "", -- Options: "hard", "soft", or empty
-			palette_overrides = {}, -- Custom palette overrides
+			palette_overrides = {
+				illuminated_bg = "#3c3836",
+				dark0_hard = "#1d2021",
+			}, -- Custom palette overrides
 		})
 
 		-- Set the colorscheme to gruvbox
 		vim.cmd("colorscheme gruvbox")
+		vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#3c3836" })
+		vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#3c3836" })
+		vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#3c3836" })
 	end,
 }
