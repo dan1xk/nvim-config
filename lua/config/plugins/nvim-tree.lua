@@ -14,10 +14,6 @@ return {
 		vim.g.loaded_netrwPlugin = 1
 
 		nvimtree.setup({
-			view = {
-				width = 40, -- Width of the tree view
-				relativenumber = false, -- Disable relative numbers
-			},
 			update_focused_file = { -- Focus on the open file
 				enable = true,
 				update_cwd = false,
@@ -27,15 +23,8 @@ return {
 				indent_markers = {
 					enable = true, -- Enable indent markers
 				},
-				-- icons = {
-				-- 	glyphs = {
-				-- 		folder = {
-				-- 			arrow_closed = "○", -- Arrow when folder is closed
-				-- 			arrow_open = "●", -- Arrow when folder is open
-				-- 		},
-				-- 	},
-				-- },
 			},
+			ignore = { ".git", "node_modules", ".cache" }, -- Ignore directories
 			diagnostics = {
 				enable = true, -- Enable diagnostics
 				show_on_dirs = false, -- Show diagnostics on directories
