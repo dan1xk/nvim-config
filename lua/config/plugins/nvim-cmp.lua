@@ -52,12 +52,10 @@ return {
 				{ name = "path" }, -- File system paths
 			}),
 			formatting = {
-				format = lspkind.cmp_format({
-					maxwidth = 50, -- Maximum width for the item
-					ellipsis_char = "...", -- Character for ellipsis
-				}),
+				format = lspkind.cmp_format({ with_text = false, maxwidth = 50 }),
+				expandable_indicator = true,
+				fields = { "abbr", "kind" },
 			},
 		})
 	end,
 }
-

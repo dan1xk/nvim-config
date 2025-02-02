@@ -27,14 +27,14 @@ return {
 				indent_markers = {
 					enable = true, -- Enable indent markers
 				},
-				icons = {
-					glyphs = {
-						folder = {
-							arrow_closed = "○", -- Arrow when folder is closed
-							arrow_open = "●", -- Arrow when folder is open
-						},
-					},
-				},
+				-- icons = {
+				-- 	glyphs = {
+				-- 		folder = {
+				-- 			arrow_closed = "○", -- Arrow when folder is closed
+				-- 			arrow_open = "●", -- Arrow when folder is open
+				-- 		},
+				-- 	},
+				-- },
 			},
 			diagnostics = {
 				enable = true, -- Enable diagnostics

@@ -17,8 +17,8 @@ return {
 			end
 
 			-- Navigation Mappings
-			map("n", "]h", gs.next_hunk, "Next Hunk") -- Go to the next hunk
-			map("n", "[h", gs.prev_hunk, "Prev Hunk") -- Go to the previous hunk
+			map("n", "]h", gs.nav_hunk, "Next Hunk") -- Go to the next hunk
+			map("n", "[h", gs.nav_hunk, "Prev Hunk") -- Go to the previous hunk
 
 			-- Action Mappings
 			map("n", "<leader>hs", gs.stage_hunk, "Stage hunk") -- Stage the current hunk
