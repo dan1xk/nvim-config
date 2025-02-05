@@ -3,33 +3,30 @@
 -- ================================
 
 return {
-	"ellisonleao/gruvbox.nvim", -- Gruvbox colorscheme plugin
+	"folke/tokyonight.nvim",
+	priority = 1000, -- Load before other plugins
 	config = function()
-		-- Setup Gruvbox with specified options
-		require("gruvbox").setup({
-			-- General settings
-			undercurl = true, -- Enable undercurl
-			underline = false, -- Disable underlining
-			bold = true, -- Enable bold text
-			strikethrough = true, -- Enable strikethrough
-			invert_selection = false, -- Disable selection inversion
-			invert_signs = false, -- Disable sign inversion
-			invert_tabline = false, -- Disable tabline inversion
-			transparent_mode = true, -- Enable transparent mode
-			dim_inactive = false, -- Don't dim inactive windows
-
-			-- Contrast and appearance
-			contrast = "", -- Options: "hard", "soft", or empty
-			palette_overrides = {
-				illuminated_bg = "#3c3836",
-				dark0_hard = "#1d2021",
-			}, -- Custom palette overrides
+		require("tokyonight").setup({
+			style = "moon", -- Options: "storm", "night", "moon", "day"
+			transparent = true, -- Enable transparent background
+			terminal_colors = true, -- Use colors in the terminal
+			styles = {
+				comments = { italic = true },
+				keywords = { italic = false },
+				functions = { bold = true },
+				variables = {},
+				sidebars = "transparent", -- Make sidebars transparent
+				floats = "dark",
+			},
+			sidebars = { "qf", "help", "terminal", "packer", "NvimTree" },
+			dim_inactive = false, -- Do not dim inactive windows
+			lualine_bold = true, -- Use bold text in Lualine
 		})
 
-		-- Set the colorscheme to gruvbox
-		vim.cmd("colorscheme gruvbox")
-		vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#3c3836" })
-		vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#3c3836" })
-		vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#3c3836" })
+		-- Apply the colorscheme
+		vim.cmd([[colorscheme tokyonight]])
+
+		-- Make NvimTree transparent
+		vim.cmd([[highlight NvimTreeNormal guibg=NONE ctermbg=NONE]])
 	end,
 }

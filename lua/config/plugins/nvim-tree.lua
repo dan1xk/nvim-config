@@ -5,7 +5,6 @@
 return {
 	"nvim-tree/nvim-tree.lua",
 	dependencies = "nvim-tree/nvim-web-devicons", -- Dependency for file icons
-
 	config = function()
 		local nvimtree = require("nvim-tree")
 
@@ -19,17 +18,21 @@ return {
 				update_cwd = false,
 				ignore_list = {},
 			},
-			renderer = {
-				indent_markers = {
-					enable = true, -- Enable indent markers
+			view = {
+				width = 40,
+			},
+			filesystem_watchers = {
+				ignore_dirs = {
+					"node_modules",
+					".git",
+					".cache",
 				},
 			},
-			ignore = { ".git", "node_modules", ".cache" }, -- Ignore directories
 			diagnostics = {
 				enable = true, -- Enable diagnostics
 				show_on_dirs = false, -- Show diagnostics on directories
 				show_on_open_dirs = true, -- Show diagnostics on opened directories
-				debounce_delay = 50, -- Debounce delay for diagnostics
+				debounce_delay = 200, -- Debounce delay for diagnostics
 				severity = {
 					min = vim.diagnostic.severity.HINT, -- Minimum severity level
 					max = vim.diagnostic.severity.ERROR, -- Maximum severity level
@@ -56,15 +59,14 @@ return {
 
 		-- Set keymaps
 		local keymap = vim.keymap
-
-		keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" }) -- Toggle file explorer
+		keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
 		keymap.set(
 			"n",
 			"<leader>ef",
 			"<cmd>NvimTreeFindFileToggle<CR>",
 			{ desc = "Toggle file explorer on current file" }
-		) -- Toggle file explorer on current file
-		keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- Collapse file explorer
-		keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- Refresh file explorer
+		)
+		keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" })
+		keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })
 	end,
 }

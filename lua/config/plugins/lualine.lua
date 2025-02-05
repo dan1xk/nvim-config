@@ -9,11 +9,10 @@ return {
 	config = function()
 		local lualine = require("lualine")
 		local lazy_status = require("lazy.status") -- To configure lazy pending updates count
-
 		-- Lualine setup
 		lualine.setup({
 			options = {
-				theme = "gruvbox_dark", -- Set the desired theme
+				theme = "tokyonight", -- Set the desired theme
 			},
 			sections = {
 				lualine_x = {
@@ -30,4 +29,3 @@ return {
 		})
 	end,
 }
-

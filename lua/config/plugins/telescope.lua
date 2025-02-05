@@ -18,7 +18,6 @@ return {
 		local transform_mod = require("telescope.actions.mt").transform_mod
 
 		local trouble = require("trouble")
-		local trouble_telescope = require("trouble.providers.telescope")
 
 		-- Custom action to open trouble's quickfix list
 		local custom_actions = transform_mod({
@@ -48,6 +47,7 @@ return {
 
 		telescope.setup({
 			defaults = {
+				winblend = 30,
 				path_display = { "smart" }, -- Smart path display
 				file_ignore_patterns = ignore_filetypes_list, -- Patterns to ignore in file searches
 				mappings = {

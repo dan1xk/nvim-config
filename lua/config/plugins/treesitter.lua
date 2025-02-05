@@ -3,60 +3,27 @@
 -- ================================
 
 return {
-	"nvim-tree/nvim-tree.lua",
-	dependencies = "nvim-tree/nvim-web-devicons",
+	"nvim-treesitter/nvim-treesitter",
+	event = { "BufReadPre", "BufNewFile" },
+	build = ":TSUpdate",
+	dependencies = {
+		"windwp/nvim-ts-autotag",
+	},
 	config = function()
-		local nvimtree = require("nvim-tree")
+		-- import nvim-treesitter plugin
+		local treesitter = require("nvim-treesitter.configs")
 
-		-- recommended settings from nvim-tree documentation
-		vim.g.loaded_netrw = 1
-		vim.g.loaded_netrwPlugin = 1
-
-		nvimtree.setup({
-			view = {
-				width = 45,
-				relativenumber = false,
-			},
-			-- change folder arrow icons
-			renderer = {
-				indent_markers = {
-					enable = true,
-				},
-				icons = {
-					glyphs = {
-						folder = {
-							arrow_closed = "○", -- Arrow when folder is closed
-							arrow_open = "●", -- Arrow when folder is open
-						},
-					},
-				},
-			},
-			actions = {
-				open_file = {
-					window_picker = {
-						enable = false,
-					},
-				},
-			},
-			filters = {
-				custom = { ".DS_Store" },
-			},
-			git = {
-				ignore = false,
+		-- configure treesitter
+		treesitter.setup({ -- enable syntax highlighting
+			modules = {},
+			sync_install = true,
+			auto_install = true, -- install maintained parsers
+			ensure_installed = { "python", "cpp", "lua", "vim", "json", "toml" },
+			ignore_install = {}, -- List of parsers to ignore installing
+			highlight = {
+				enable = true, -- false will disable the whole extension
+				disable = { "help" }, -- list of language that will be disabled
 			},
 		})
-
-		-- set keymaps
-		local keymap = vim.keymap -- for conciseness
-
-		keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
-		keymap.set(
-			"n",
-			"<leader>ef",
-			"<cmd>NvimTreeFindFileToggle<CR>",
-			{ desc = "Toggle file explorer on current file" }
-		) -- toggle file explorer on current file
-		keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
-		keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
 	end,
 }
