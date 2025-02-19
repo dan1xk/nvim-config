@@ -13,6 +13,11 @@ return {
 		vim.g.loaded_netrwPlugin = 1
 
 		nvimtree.setup({
+			git = {
+				enable = true,
+				timeout = 1000,
+				ignore = { ".git", "node_modules", ".cache" },
+			},
 			update_focused_file = { -- Focus on the open file
 				enable = true,
 				update_cwd = false,
