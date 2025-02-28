@@ -24,6 +24,12 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) -- G
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) -- Go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) -- Move current buffer to new tab
 
+-- Goodies Mappings
+keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit" }) -- Quit
+keymap.set("n", "<leader>qq", ":qall<CR>", { desc = "Quit all" }) -- Quit all
+keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save" }) -- Save
+keymap.set("n", "<leader>ww", ":wall<CR>", { desc = "Save all" }) -- Save all
+
 -- Buffer Navigation Mappings
 keymap.set("n", "<leader>bn", ":bnext<CR>", { desc = "Go to next buffer" }) -- Go to next buffer
 keymap.set("n", "<leader>bp", ":bprevious<CR>", { desc = "Go to previous buffer" }) -- Go to previous buffer
