@@ -104,7 +104,6 @@ return {
 						"sass",
 						"scss",
 						"less",
-						"svelte",
 					},
 				})
 			end,
@@ -113,6 +112,13 @@ return {
 					capabilities = capabilities,
 					settings = {
 						Lua = {
+							workspace = {
+								checkThirdParty = false,
+								telemetry = { enable = false },
+								library = {
+									"${3rd}/love2d/library",
+								},
+							},
 							diagnostics = {
 								globals = { "vim" }, -- Recognize "vim" global
 							},

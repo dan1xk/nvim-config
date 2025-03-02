@@ -23,6 +23,7 @@ return {
 				liquid = { "prettier" }, -- Format Liquid files with Prettier
 				lua = { "stylua" }, -- Format Lua files with Stylua
 				python = { "isort", "black" }, -- Format Python files with isort and Black
+				rust = { "rustfmt" }, -- Format Rust files with Rustfmt
 			},
 			format_on_save = {
 				lsp_fallback = true, -- Use LSP formatter if available

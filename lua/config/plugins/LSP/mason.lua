@@ -39,6 +39,7 @@ return {
 				"emmet_ls", -- Emmet server
 				"prismals", -- Prisma language server
 				"pyright", -- Python server
+				"rust_analyzer", -- Rust server
 			},
 		})
 
@@ -51,6 +52,7 @@ return {
 				"black", -- Python formatter
 				"pylint", -- Python linter
 				"eslint_d", -- ESLint daemon for JavaScript and TypeScript
+				"rustfmt", -- Rust formatter
 			},
 		})
 	end,
