@@ -25,22 +25,15 @@ return {
 					{ open = "{", close = "}" },
 				},
 				ignore_beginning = true,
-				exclude = {}, -- tabout will ignore these filetypes
+				exclude = {},
 			})
 		end,
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
-			"L3MON4D3/LuaSnip",
 			"hrsh7th/nvim-cmp",
 		},
 		opt = true,
 		event = "InsertCharPre",
 		priority = 1000,
-	},
-	{
-		"L3MON4D3/LuaSnip",
-		keys = function()
-			return {}
-		end,
 	},
 }

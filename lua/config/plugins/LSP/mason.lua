@@ -43,7 +43,6 @@ return {
 				"black",
 				"pylint",
 				"eslint_d",
-				"rustfmt",
 			},
 		})
 	end,

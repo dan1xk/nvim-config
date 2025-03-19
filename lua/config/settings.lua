@@ -6,16 +6,27 @@
 vim.cmd("let g:netrw_liststyle = 3")
 
 local opt = vim.opt
+local api = vim.api
 
 -- General settings
 opt.number = true
-opt.relativenumber = false
+opt.relativenumber = true
 opt.clipboard:append("unnamedplus")
 opt.mouse = "a"
-opt.scrolloff = 8
-opt.sidescrolloff = 8
+opt.scrolloff = 0
+opt.sidescrolloff = 0
 opt.completeopt = "menuone,noselect"
 opt.backupcopy = "yes"
+opt.autoread = true
+opt.swapfile = false
+opt.undofile = true
+opt.writebackup = false
+opt.hlsearch = false
+opt.incsearch = true
+opt.grepprg = "rg --vimgrep"
+opt.grepformat = "%f:%l:%c:%m"
+opt.updatetime = 300
+opt.nu = true
 
 -- Indentation settings
 opt.tabstop = 2
@@ -32,3 +43,6 @@ opt.background = "dark"
 opt.signcolumn = "yes"
 opt.laststatus = 3
 opt.showmode = false
+
+api.nvim_create_autocmd("VimResized", { command = "wincmd =" })
+api.nvim_create_autocmd({ "CursorMoved", "BufEnter", "WinEnter" }, { command = "normal! zz" })
