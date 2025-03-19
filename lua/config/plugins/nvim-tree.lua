@@ -10,25 +10,12 @@ return {
 		vim.g.loaded_netrw = 1
 		vim.g.loaded_netrwPlugin = 1
 		nvimtree.setup({
-			git = {
-				enable = true,
-				timeout = 1000,
-				ignore = { ".git", "node_modules", ".cache" },
-			},
 			update_focused_file = {
 				enable = true,
 				update_cwd = false,
-				ignore_list = {},
 			},
 			view = {
 				width = 40,
-			},
-			filesystem_watchers = {
-				ignore_dirs = {
-					"node_modules",
-					".git",
-					".cache",
-				},
 			},
 			diagnostics = {
 				enable = true,
@@ -52,9 +39,6 @@ return {
 						enable = false,
 					},
 				},
-			},
-			filters = {
-				git_ignored = true,
 			},
 		})
 		local keymap = vim.keymap
