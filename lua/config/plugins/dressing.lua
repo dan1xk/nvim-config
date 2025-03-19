@@ -8,12 +8,12 @@ return {
 	config = function()
 		require("dressing").setup({
 			input = {
-				default_prompt = "Input:", -- Default prompt for input dialogs
+				default_prompt = "Input:",
 			},
 			select = {
-				backend = { "telescope", "fzf", "builtin" }, -- Options for selection
+				backend = { "telescope", "fzf", "builtin" },
 				builtin = {
-					win_options = { winhighlight = "Normal:Normal" }, -- Customize built-in select window
+					win_options = { winhighlight = "Normal:Normal" },
 				},
 			},
 		})

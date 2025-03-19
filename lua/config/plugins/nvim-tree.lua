@@ -4,21 +4,18 @@
 
 return {
 	"nvim-tree/nvim-tree.lua",
-	dependencies = "nvim-tree/nvim-web-devicons", -- Dependency for file icons
+	dependencies = "nvim-tree/nvim-web-devicons",
 	config = function()
 		local nvimtree = require("nvim-tree")
-
-		-- Recommended settings from nvim-tree documentation
 		vim.g.loaded_netrw = 1
 		vim.g.loaded_netrwPlugin = 1
-
 		nvimtree.setup({
 			git = {
 				enable = true,
 				timeout = 1000,
 				ignore = { ".git", "node_modules", ".cache" },
 			},
-			update_focused_file = { -- Focus on the open file
+			update_focused_file = {
 				enable = true,
 				update_cwd = false,
 				ignore_list = {},
@@ -34,13 +31,13 @@ return {
 				},
 			},
 			diagnostics = {
-				enable = true, -- Enable diagnostics
-				show_on_dirs = false, -- Show diagnostics on directories
-				show_on_open_dirs = true, -- Show diagnostics on opened directories
-				debounce_delay = 200, -- Debounce delay for diagnostics
+				enable = true,
+				show_on_dirs = false,
+				show_on_open_dirs = true,
+				debounce_delay = 200,
 				severity = {
-					min = vim.diagnostic.severity.HINT, -- Minimum severity level
-					max = vim.diagnostic.severity.ERROR, -- Maximum severity level
+					min = vim.diagnostic.severity.HINT,
+					max = vim.diagnostic.severity.ERROR,
 				},
 				icons = {
 					hint = "",
@@ -52,17 +49,14 @@ return {
 			actions = {
 				open_file = {
 					window_picker = {
-						enable = false, -- Disable window picker for splits
+						enable = false,
 					},
 				},
 			},
 			filters = {
-				custom = { ".DS_Store" }, -- Custom filters
-				git_ignored = false, -- Don't ignore git files
+				git_ignored = true,
 			},
 		})
-
-		-- Set keymaps
 		local keymap = vim.keymap
 		keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
 		keymap.set(

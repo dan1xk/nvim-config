@@ -10,42 +10,31 @@ return {
 		on_attach = function(bufnr)
 			vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", { fg = "#a9b1d6", italic = true })
 			local gs = require("gitsigns")
-
-			-- Function to create key mappings
 			local function map(mode, key, action, description)
 				vim.keymap.set(mode, key, action, { buffer = bufnr, desc = description })
 			end
-
-			-- Navigation Mappings
-			map("n", "]h", gs.nav_hunk, "Next Hunk") -- Go to the next hunk
-			map("n", "[h", gs.nav_hunk, "Prev Hunk") -- Go to the previous hunk
-
-			-- Action Mappings
-			map("n", "<leader>hs", gs.stage_hunk, "Stage hunk") -- Stage the current hunk
-			map("n", "<leader>hr", gs.reset_hunk, "Reset hunk") -- Reset the current hunk
+			map("n", "]h", gs.nav_hunk, "Next Hunk")
+			map("n", "[h", gs.nav_hunk, "Prev Hunk")
+			map("n", "<leader>hs", gs.stage_hunk, "Stage hunk")
+			map("n", "<leader>hr", gs.reset_hunk, "Reset hunk")
 			map("v", "<leader>hs", function()
-				gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) -- Stage selected hunk in visual mode
+				gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
 			end, "Stage hunk")
 			map("v", "<leader>hr", function()
-				gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") }) -- Reset selected hunk in visual mode
+				gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
 			end, "Reset hunk")
-
-			map("n", "<leader>hS", gs.stage_buffer, "Stage buffer") -- Stage entire buffer
-			map("n", "<leader>hR", gs.reset_buffer, "Reset buffer") -- Reset entire buffer
-			map("n", "<leader>hu", gs.undo_stage_hunk, "Undo stage hunk") -- Undo staging of hunk
-			map("n", "<leader>hp", gs.preview_hunk, "Preview hunk") -- Preview the current hunk
-
+			map("n", "<leader>hS", gs.stage_buffer, "Stage buffer")
+			map("n", "<leader>hR", gs.reset_buffer, "Reset buffer")
+			map("n", "<leader>hp", gs.preview_hunk, "Preview hunk")
 			map("n", "<leader>hb", function()
-				gs.blame_line({ full = true }) -- Blame the current line
+				gs.blame_line({ full = true })
 			end, "Blame line")
-			map("n", "<leader>hB", gs.toggle_current_line_blame, "Toggle line blame") -- Toggle line blame display
-			map("n", "<leader>hd", gs.diffthis, "Diff this") -- Diff the current buffer
+			map("n", "<leader>hB", gs.toggle_current_line_blame, "Toggle line blame")
+			map("n", "<leader>hd", gs.diffthis, "Diff this")
 			map("n", "<leader>hD", function()
-				gs.diffthis("~") -- Diff against the last commit
+				gs.diffthis("~")
 			end, "Diff this ~")
-
-			-- Text Object Mappings
-			map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "Gitsigns select hunk") -- Select hunk as a text object
+			map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "Gitsigns select hunk")
 		end,
 	},
 }

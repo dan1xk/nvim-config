@@ -10,19 +10,16 @@ return {
 		"windwp/nvim-ts-autotag",
 	},
 	config = function()
-		-- import nvim-treesitter plugin
 		local treesitter = require("nvim-treesitter.configs")
-
-		-- configure treesitter
-		treesitter.setup({ -- enable syntax highlighting
+		treesitter.setup({
 			modules = {},
 			sync_install = true,
-			auto_install = true, -- install maintained parsers
+			auto_install = true,
 			ensure_installed = { "python", "cpp", "lua", "vim", "json", "toml" },
-			ignore_install = {}, -- List of parsers to ignore installing
+			ignore_install = {},
 			highlight = {
-				enable = true, -- false will disable the whole extension
-				disable = { "help" }, -- list of language that will be disabled
+				enable = true,
+				disable = { "help" },
 			},
 		})
 	end,

@@ -6,26 +6,19 @@ return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		"hrsh7th/cmp-nvim-lsp", -- Completion source for LSP
-		{ "antosha417/nvim-lsp-file-operations", config = true }, -- File operations
-		{ "folke/neodev.nvim", opts = {} }, -- Neovim development enhancements
+		"hrsh7th/cmp-nvim-lsp",
+		{ "antosha417/nvim-lsp-file-operations", config = true },
+		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
-		-- Import necessary plugins
-		local lspconfig = require("lspconfig") -- LSP configuration
-		local mason_lspconfig = require("mason-lspconfig") -- Mason for LSP management
-		local cmp_nvim_lsp = require("cmp_nvim_lsp") -- Nvim-cmp source for LSP
-
-		local keymap = vim.keymap -- For conciseness
-
-		-- LSP Attach Autocommand
+		local lspconfig = require("lspconfig")
+		local mason_lspconfig = require("mason-lspconfig")
+		local cmp_nvim_lsp = require("cmp_nvim_lsp")
+		local keymap = vim.keymap
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 			callback = function(ev)
-				-- Buffer local mappings
 				local opts = { buffer = ev.buf, silent = true }
-
-				-- Set keybinds for LSP functionalities
 				keymap.set(
 					"n",
 					"gR",
@@ -76,20 +69,13 @@ return {
 				keymap.set("n", "<leader>rs", ":LspRestart<CR>", { desc = "Restart LSP", unpack(opts) })
 			end,
 		})
-
-		-- Enable autocompletion capabilities
 		local capabilities = cmp_nvim_lsp.default_capabilities()
-
-		-- Change Diagnostic symbols in the sign column
 		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 		for type, icon in pairs(signs) do
 			local hl = "DiagnosticSign" .. type
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
-
-		-- Mason LSP Setup Handlers
 		mason_lspconfig.setup_handlers({
-			-- Default handler for installed servers
 			function(server_name)
 				lspconfig[server_name].setup({ capabilities = capabilities })
 			end,
@@ -120,10 +106,10 @@ return {
 								},
 							},
 							diagnostics = {
-								globals = { "vim" }, -- Recognize "vim" global
+								globals = { "vim" },
 							},
 							completion = {
-								callSnippet = "Replace", -- Snippet behavior
+								callSnippet = "Replace",
 							},
 						},
 					},

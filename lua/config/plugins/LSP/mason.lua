@@ -5,54 +5,45 @@
 return {
 	"williamboman/mason.nvim",
 	dependencies = {
-		"williamboman/mason-lspconfig.nvim", -- LSP configuration for Mason
-		"WhoIsSethDaniel/mason-tool-installer.nvim", -- Tool installer for Mason
+		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
 	config = function()
-		-- Import necessary modules
-		local mason = require("mason") -- Import Mason
-		local mason_lspconfig = require("mason-lspconfig") -- Import Mason LSP configuration
-		local mason_tool_installer = require("mason-tool-installer") -- Import Mason tool installer
-
-		-- Enable Mason and configure UI icons
+		local mason = require("mason")
+		local mason_lspconfig = require("mason-lspconfig")
+		local mason_tool_installer = require("mason-tool-installer")
 		mason.setup({
 			ui = {
 				icons = {
-					package_installed = "✓", -- Icon for installed packages
-					package_pending = "➜", -- Icon for pending installations
-					package_uninstalled = "✗", -- Icon for uninstalled packages
+					package_installed = "✓",
+					package_pending = "➜",
+					package_uninstalled = "✗",
 				},
 			},
 		})
-
-		-- Configure Mason LSP settings
 		mason_lspconfig.setup({
 			automatic_installation = true,
 			ensure_installed = {
-				"ts_ls", -- TypeScript server
-				"html", -- HTML server
-				"cssls", -- CSS server
-				"tailwindcss", -- Tailwind CSS server
-				"svelte", -- Svelte server
-				"lua_ls", -- Lua language server
-				"graphql", -- GraphQL server
-				"emmet_ls", -- Emmet server
-				"prismals", -- Prisma language server
-				"pyright", -- Python server
-				"rust_analyzer", -- Rust server
+				"ts_ls",
+				"html",
+				"cssls",
+				"tailwindcss",
+				"lua_ls",
+				"emmet_ls",
+				"prismals",
+				"pyright",
+				"rust_analyzer",
 			},
 		})
-
-		-- Configure Mason tool installer settings
 		mason_tool_installer.setup({
 			ensure_installed = {
-				"prettier", -- Prettier formatter
-				"stylua", -- Lua formatter
-				"isort", -- Python import sorter
-				"black", -- Python formatter
-				"pylint", -- Python linter
-				"eslint_d", -- ESLint daemon for JavaScript and TypeScript
-				"rustfmt", -- Rust formatter
+				"prettier",
+				"stylua",
+				"isort",
+				"black",
+				"pylint",
+				"eslint_d",
+				"rustfmt",
 			},
 		})
 	end,
