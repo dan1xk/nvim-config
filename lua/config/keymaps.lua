@@ -31,8 +31,8 @@ keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save" })
 keymap.set("n", "<leader>ww", ":wall<CR>", { desc = "Save all" })
 
 -- Buffer Navigation Mappings
-keymap.set("n", "<leader>bn", ":bnext<CR>", { desc = "Go to next buffer" })
-keymap.set("n", "<leader>bp", ":bprevious<CR>", { desc = "Go to previous buffer" })
+keymap.set("n", "<leader>]", ":bnext<CR>", { desc = "Go to next buffer" })
+keymap.set("n", "<leader>[", ":bprevious<CR>", { desc = "Go to previous buffer" })
 
 -- Navigation Mappings
 keymap.set("n", "<C-j>", "10j", { desc = "Move down 10 lines" })

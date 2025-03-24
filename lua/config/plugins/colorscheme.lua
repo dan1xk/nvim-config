@@ -3,26 +3,31 @@
 -- ================================
 
 return {
-	"blazkowolf/gruber-darker.nvim",
-	lazy = false,
-	priority = 1000,
+	"ellisonleao/gruvbox.nvim",
 	config = function()
-		require("gruber-darker").setup({
+		require("gruvbox").setup({
+			terminal_colors = true, -- add neovim terminal colors
+			undercurl = true,
+			underline = false,
 			bold = true,
-			invert = {
-				signs = false,
-				tabline = false,
-				visual = false,
-			},
 			italic = {
 				strings = true,
+				emphasis = true,
 				comments = true,
 				operators = false,
 				folds = true,
 			},
-			undercurl = true,
-			underline = true,
+			strikethrough = true,
+			invert_selection = false,
+			invert_signs = false,
+			invert_tabline = false,
+			invert_intend_guides = false,
+			inverse = true,
+			contrast = "",
+			palette_overrides = {},
+			dim_inactive = false,
+			transparent_mode = true,
 		})
-		vim.cmd("colorscheme gruber-darker")
+		vim.cmd("colorscheme gruvbox")
 	end,
 }

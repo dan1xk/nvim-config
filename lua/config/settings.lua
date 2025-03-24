@@ -36,7 +36,9 @@ opt.autoindent = true
 opt.smartindent = true
 
 -- Display settings
-opt.wrap = false
+opt.wrap = true
+opt.linebreak = true
+opt.showbreak = "↪ "
 opt.cursorline = true
 opt.termguicolors = true
 opt.background = "dark"
@@ -44,5 +46,6 @@ opt.signcolumn = "yes"
 opt.laststatus = 3
 opt.showmode = false
 
+-- Miscellaneous settings
 api.nvim_create_autocmd("VimResized", { command = "wincmd =" })
 api.nvim_create_autocmd({ "CursorMoved", "BufEnter", "WinEnter" }, { command = "normal! zz" })
