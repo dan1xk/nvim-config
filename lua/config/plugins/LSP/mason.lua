@@ -31,18 +31,13 @@ return {
 				"lua_ls",
 				"emmet_ls",
 				"prismals",
-				"pyright",
-				"rust_analyzer",
 			},
 		})
 		mason_tool_installer.setup({
 			ensure_installed = {
-				"prettier",
-				"stylua",
-				"isort",
-				"black",
-				"pylint",
+				"prettierd",
 				"eslint_d",
+				"stylua",
 			},
 		})
 	end,

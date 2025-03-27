@@ -5,6 +5,7 @@
 return {
 	"nvim-tree/nvim-tree.lua",
 	dependencies = "nvim-tree/nvim-web-devicons",
+	cmd = { "NvimTreeToggle", "NvimTreeFindFileToggle", "NvimTreeCollapse", "NvimTreeRefresh" },
 	config = function()
 		local nvimtree = require("nvim-tree")
 		vim.g.loaded_netrw = 1
@@ -16,21 +17,34 @@ return {
 			},
 			view = {
 				width = 40,
+				preserve_window_proportions = true,
+			},
+			renderer = {
+				indent_markers = {
+					enable = false,
+				},
+				icons = {
+					git_placement = "after",
+					show = {
+						file = true,
+						folder = true,
+						folder_arrow = true,
+						git = true,
+					},
+				},
 			},
 			diagnostics = {
 				enable = true,
-				show_on_dirs = false,
-				show_on_open_dirs = true,
-				debounce_delay = 200,
+				debounce_delay = 400,
 				severity = {
 					min = vim.diagnostic.severity.HINT,
 					max = vim.diagnostic.severity.ERROR,
 				},
 				icons = {
-					hint = "",
-					info = "",
-					warning = "",
-					error = "",
+					hint = "",
+					info = "",
+					warning = "",
+					error = "",
 				},
 			},
 			actions = {
@@ -39,6 +53,9 @@ return {
 						enable = false,
 					},
 				},
+			},
+			filesystem_watchers = {
+				enable = false,
 			},
 		})
 		local keymap = vim.keymap

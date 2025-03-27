@@ -1,8 +1,8 @@
 -- ================================
---         Treesitter Plugin
+--         WakaTime Plugin
 -- ================================
 
 return {
 	"wakatime/vim-wakatime",
-	lazy = false,
+	event = { "BufReadPost", "BufNewFile" },
 }

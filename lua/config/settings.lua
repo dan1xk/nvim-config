@@ -35,6 +35,10 @@ opt.expandtab = true
 opt.autoindent = true
 opt.smartindent = true
 
+-- Search settings
+opt.ignorecase = true
+opt.smartcase = true
+
 -- Display settings
 opt.wrap = true
 opt.linebreak = true

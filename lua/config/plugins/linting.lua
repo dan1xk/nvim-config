@@ -28,21 +28,15 @@ return {
 			typescript = { "eslint_d" },
 			javascriptreact = { "eslint_d" },
 			typescriptreact = { "eslint_d" },
-			python = { "pylint" },
 		}
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 			group = lint_augroup,
 			callback = function()
-				if vim.bo.filetype == "python" or has_eslint_config() then
+				if has_eslint_config() then
 					lint.try_lint()
 				end
 			end,
 		})
-		vim.keymap.set("n", "<leader>l", function()
-			if vim.bo.filetype == "python" or has_eslint_config() then
-				lint.try_lint()
-			end
-		end, { desc = "Trigger linting for current file" })
 	end,
 }
